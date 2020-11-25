@@ -4,6 +4,7 @@
 
 Check out the [post](https://testdriven.io/dockerizing-django-with-postgres-gunicorn-and-nginx).
 
+
 ## Want to use this project?
 
 ### Development
@@ -29,6 +30,8 @@ Uses gunicorn + nginx.
 
     ```sh
     $ docker-compose -f docker-compose.prod.yml up -d --build
+    $ docker-compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput
+    $ docker-compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input --clear
     ```
 
     Test it out at [http://localhost:1337](http://localhost:1337). No mounted folders. To apply changes, the image must be re-built.
